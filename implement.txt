@@ -1,0 +1,33 @@
+[Form Design]
+
+HTML Form Input Validation
+Mobile Responsive
+Click Cursor Button
+Animated UI (Form Elements)
+Reduced Motion Preferency (For People with Vestibular Motion Disorders)
+Feedback Page (Successful-Unsuccessful)  
+
+-------------------------------------------
+
+[Mail Verification System]
+
+Basic Syntax Validation
+Regex Validation
+DNS Validation
+SMTP Validation
+Disposable Email Detection
+Blacklist Check
+SPF and DKIM Records Check
+Unicode Support
+IP Address Checking
+Domain Age Check
+Rate Limiting
+Honeypot Field
+
+-------------------------------------------
+
+[Security]
+
+Submit Isset (To Prevent Unauthorized PHP Script Access)
+Input Sanitization (Isset-Empty-Filter)
+Error Handling (Try-Catch, If-Applicable)
