@@ -24,7 +24,7 @@ main {
     width: 100vw;
     height: 100vh;
 
-    background: url("..//bg.png") !important;
+    background: url("../img/bg.png") !important;
 	background-attachment: fixed;
 	background-size: contain;
 }
