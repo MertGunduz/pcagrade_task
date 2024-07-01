@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <main>
+        <div id="send-message-div">
+            <h1 class="typ-header mb20">SEND MESSAGE</h1>
+            <p class="mb20">This form is designed for message submission, utilizing extensive validation techniques to ensure data integrity and accuracy.</p>
+            <p class="mb20">System will be applying email syntax verification, DNS checks, disposable email detection, blacklist screening, IP address validation, SMTP validation, and domain age validation.</p>
+            <form id="send-message-form" action="backend/register.php" method="POST">
+                <input name="username" required placeholder="Name & Surname" class="mb20 form-element" type="text">
+                <input name="email" required placeholder="Email Address" class="mb20 form-element" type="email">
+                <textarea id="joincause-textarea" maxlength="256" name="loginreason" required placeholder="Message (Maximum 256 Characters)" class="mb2 form-element" cols="30" rows="10"></textarea>
+                <div id="character-counter-div" class="mb12">
+                    <b id="message-character-counter-p"></b>
+                    <b class="typ-header">Characters</b>
+                </div>
+                <div class="checkbox-wrapper-36 mb12">
+                    <input id="toggle-36" type="checkbox">
+                    <label for="toggle-36"></label>
+                    <p class="typ-header">Terms & Conditions</p>
+                </div>
+                <input name="discordRoute" required class="form-element" type="submit" value="SEND THE MESSAGE">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
