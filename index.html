@@ -12,7 +12,7 @@
             <h1 class="typ-header mb20">SEND MESSAGE</h1>
             <p class="mb20">This form is designed for message submission, utilizing extensive validation techniques to ensure data integrity and accuracy.</p>
             <p class="mb20">System will be applying email syntax verification, DNS checks, disposable email detection, blacklist screening, IP address validation, SMTP validation, and domain age validation.</p>
-            <form id="send-message-form" action="backend/register.php" method="POST">
+            <form id="send-message-form" action="php/send_message.php" method="POST">
                 <input name="name_surname" required placeholder="Name & Surname" class="mb20 form-element" type="text">
                 <input name="email_address" required placeholder="Email Address" class="mb20 form-element" type="email">
                 <textarea id="cc-textarea" maxlength="256" name="user_message" required placeholder="Message (Maximum 256 Characters)" class="mb2 form-element" cols="30" rows="10"></textarea>
@@ -28,10 +28,6 @@
             </form>
         </div>
     </main>
-
-    <footer>
-        
-    </footer>
 </body>
 </html>
-<script src="scripts/c_count.js"></script>
+<script src="js/c_count.js"></script>
