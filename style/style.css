@@ -62,11 +62,8 @@ main {
     padding: 1em 2em;
     border: 2px solid #000;
     background: #085078;
-   /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #95fff4, #348cbb);
-   /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #95fff4, #348cbb);
-   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     box-shadow: #348cbb 4px 4px 0px 0px, #000 4px 4px 0 2px;
 }
 
@@ -117,21 +114,21 @@ main {
 /* FORM DESIGN */
 
 
-
-.checkbox-wrapper-36 *,
-.checkbox-wrapper-36 *::before,
-.checkbox-wrapper-36 *::after {
+/* CHECKBOX DESIGN */
+.checkbox-element *,
+.checkbox-element *::before,
+.checkbox-element *::after {
     box-sizing: border-box;
 }
 
-.checkbox-wrapper-36 {
+.checkbox-element {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
 
-.checkbox-wrapper-36 label {
+.checkbox-element label {
     background: #d4f34a;
     border: 2px solid #000000;
     box-shadow: #85a00d 4px 4px 0px 0px,#000000 4px 4px 0 2px;
@@ -145,12 +142,12 @@ main {
     cursor: pointer;
 }
 
-.checkbox-wrapper-36 input {
+.checkbox-element input {
     display: none;
 }
 
-.checkbox-wrapper-36 label:after {
-    animation: move-left-36 400ms;
+.checkbox-element label:after {
+    animation: move-left 400ms;
     background: #d4f34a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13.5' height='13.5' viewBox='0 0 24 24'%3E%3Cpath stroke='#E2E2E2' fill='#E2E2E2' stroke-linecap='round' d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z'/%3E%3C/svg%3E") no-repeat center;
     border: 2px solid #000000;
     border-radius: 0px;
@@ -164,18 +161,18 @@ main {
     top: 3.5px;
 }
 
-.checkbox-wrapper-36 input:checked + label:after {
-    animation: move-right-36 400ms;
+.checkbox-element input:checked + label:after {
+    animation: move-right 400ms;
     background: #d4f34a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24'%3E%3Cpath stroke='white' fill='black' stroke-linecap='round' d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z'/%3E%3C/svg%3E") no-repeat center;
     left: 34px;
 }
 
-.checkbox-wrapper-36 p {
+.checkbox-element p {
     margin-top: 6px;
     font-weight: bold;
 }
 
-@keyframes move-right-36 {
+@keyframes move-right {
     0% {
         left: 4px;
     }
@@ -187,7 +184,7 @@ main {
     }
 }
 
-@keyframes move-left-36 {
+@keyframes move-left {
     0% {
         left: 36px;
     }
@@ -198,3 +195,4 @@ main {
         left: 4px;
     }
 }
+/* CHECKBOX DESIGN */
