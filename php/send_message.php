@@ -1,4 +1,7 @@
 <?php
+    // Import MailValidate.
+    require_once "classes/MailValidate.php";
+
     // Errors array to store the form submit errors.
     $form_submit_errors = [];
 
@@ -37,6 +40,14 @@
         exit;
     }
     
-    // If all validations pass, proceed with further processing.
-    echo "good!";
+    // Take name-surname and message, also use htmlspecialchars function to sanitize them for XSS attacks.
+    $name_surname = htmlspecialchars($_POST["name_surname"]);   
+    $user_message = htmlspecialchars($_POST["user_message"]);
+
+    // Take email without htmlspecialchars function.
+    $email_address = $_POST["email_address"];
+
+    // Create a MailValidate object.
+    $validate_mail = new MailValidate($email_address);
+
 ?>
