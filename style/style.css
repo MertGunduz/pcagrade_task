@@ -164,11 +164,6 @@ main {
     top: 3.5px;
 }
 
-.checkbox-wrapper-36 label:active {
-    box-shadow: 0px 5px 10px 0 rgba(0,0,0,0.2);
-    transform: scale(1.15);
-}
-
 .checkbox-wrapper-36 input:checked + label:after {
     animation: move-right-36 400ms;
     background: #000000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13.5' height='13.5' viewBox='0 0 24 24'%3E%3Cpath stroke='white' fill='white' stroke-linecap='round' d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z'/%3E%3C/svg%3E") no-repeat center;
