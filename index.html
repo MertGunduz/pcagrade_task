@@ -15,17 +15,16 @@
             <form id="send-message-form" action="backend/register.php" method="POST">
                 <input name="username" required placeholder="Name & Surname" class="mb20 form-element" type="text">
                 <input name="email" required placeholder="Email Address" class="mb20 form-element" type="email">
-                <textarea id="joincause-textarea" maxlength="256" name="loginreason" required placeholder="Message (Maximum 256 Characters)" class="mb2 form-element" cols="30" rows="10"></textarea>
+                <textarea id="cc-textarea" maxlength="256" name="loginreason" required placeholder="Message (Maximum 256 Characters)" class="mb2 form-element" cols="30" rows="10"></textarea>
                 <div id="character-counter-div" class="mb12">
-                    <b id="message-character-counter-p"></b>
-                    <b class="typ-header">Characters</b>
+                    <b class="typ-header" id="message-character-counter-p"></b>
                 </div>
                 <div class="checkbox-wrapper-36 mb12">
-                    <input id="toggle-36" type="checkbox">
+                    <input required id="toggle-36" type="checkbox">
                     <label for="toggle-36"></label>
                     <p class="typ-header">Terms & Conditions</p>
                 </div>
-                <input name="discordRoute" required class="form-element" type="submit" value="SEND THE MESSAGE">
+                <input name="send_message" required class="form-element" type="submit" value="SEND THE MESSAGE">
             </form>
         </div>
     </main>
@@ -35,3 +34,4 @@
     </footer>
 </body>
 </html>
+<script src="scripts/c_count.js"></script>

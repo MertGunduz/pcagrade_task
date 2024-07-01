@@ -106,7 +106,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: end;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 8px;
 
     width: 100%;
