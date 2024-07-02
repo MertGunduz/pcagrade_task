@@ -72,7 +72,7 @@ class MailValidate
         }
 
         // Extract the domain from the email
-        $domain = $this->extract_domain($email);
+        $domain = substr(strrchr($email, "@"), 1);
 
         // Check if the domain has a valid MX or A record
         return $this->has_valid_dns($domain);
@@ -85,7 +85,7 @@ class MailValidate
      */
     public function is_email_disposable(): bool
     {
-        $domain = $this->extract_domain($this->mail);
+        $domain = substr(strrchr($this->mail, "@"), 1);
 
         // Path to disposable email list file
         $file_path = __DIR__ . '/../data/disposable_mails.txt';
@@ -98,30 +98,6 @@ class MailValidate
     }
 
     /**
-     * Checks if the email address is role-based (e.g., admin@domain.com).
-     *
-     * @return bool True if the email address is role-based, false otherwise.
-     */
-    public function is_email_role_based(): bool
-    {
-        $local_part = $this->extract_local_part($this->mail);
-
-        $role_based_emails = [
-            'admin', 'administrator', 'info',
-            'contact', 'support', 'sales',
-            'office', 'noreply', 'no-reply',
-            'helpdesk', 'service', 'marketing',
-            'hr', 'jobs', 'careers',
-            'techsupport', 'it', 'sysadmin',
-            'finance', 'accounting', 'billing',
-            'press', 'media','pr',
-            'legal', 'dev', "staff"
-        ];
-
-        return in_array(strtolower($local_part), $role_based_emails);
-    }
-
-    /**
      * Validates the syntax of the email address using a regex pattern.
      *
      * @param string $email The email address to validate.
@@ -130,28 +106,6 @@ class MailValidate
     private function has_valid_syntax(string $email): bool
     {
         return preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email);
-    }
-
-    /**
-     * Extracts the domain part of the email address.
-     *
-     * @param string $email The email address to extract the domain from.
-     * @return string The domain part of the email address.
-     */
-    private function extract_domain(string $email): string
-    {
-        return substr(strrchr($email, "@"), 1);
-    }
-
-    /**
-     * Extracts the local part of the email address.
-     *
-     * @param string $email The email address to extract the local part from.
-     * @return string The local part of the email address.
-     */
-    private function extract_local_part(string $email): string
-    {
-        return strstr($email, '@', true);
     }
 
     /**

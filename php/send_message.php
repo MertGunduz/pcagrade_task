@@ -69,13 +69,4 @@
     {
         echo "Email domain is not from a disposable provider.<br>";
     }
-
-    // Check if the email address is role-based
-    if ($mail_validator->is_email_role_based()) 
-    {
-        echo "Email address is role-based.<br>";
-    } 
-    else 
-    {
-        echo "Email address is not role-based.<br>";
-    }
+?>
