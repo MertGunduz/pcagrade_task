@@ -17,7 +17,7 @@
         $form_submit_errors[] = "A valid Email Address is required.";
     }
 
-    // Check if user_message passed correctly from the form and validate max length/
+    // Check if user_message passed correctly from the form and validate max length.
     if (!isset($_POST["user_message"]) || empty($_POST["user_message"]))
     {
         $form_submit_errors[] = "Message is required and must be 256 characters or less.";
