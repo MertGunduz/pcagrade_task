@@ -7,7 +7,6 @@
 class MailValidate
 {
     private $mail;
-    private $disposable_email_providers;
 
     /**
      * Initializes the mail variable with the given string parameter using the constructor method.
@@ -17,7 +16,6 @@ class MailValidate
     public function __construct(string $mail) 
     {
         $this->set_mail($mail);
-        $this->load_disposable_email_providers();
     }
 
     /**
@@ -81,16 +79,7 @@ class MailValidate
     }
 
     /**
-     * Loads the list of known disposable email providers from a file.
-     */
-    private function load_disposable_email_providers(): void
-    {
-        $file_path = __DIR__ . '/../data/disposable_mails.txt';
-        $this->disposable_email_providers = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    }
-
-    /**
-     * Checks if the email domain is from a known disposable email provider.
+     * Checks if the email address domain is from a known disposable email provider.
      *
      * @return bool True if the domain is from a disposable email provider, false otherwise.
      */
@@ -98,7 +87,14 @@ class MailValidate
     {
         $domain = $this->extract_domain($this->mail);
 
-        return in_array($domain, $this->disposable_email_providers);
+        // Path to disposable email list file
+        $file_path = __DIR__ . '/../data/disposable_mails.txt';
+
+        // Read the file into an array
+        $disposable_email_providers = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        // Check if the domain is in the list of disposable email providers
+        return in_array($domain, $disposable_email_providers);
     }
 
     /**
@@ -186,4 +182,3 @@ class MailValidate
         return checkdnsrr($domain, "MX") || checkdnsrr($domain, "A");
     }
 }
-?>

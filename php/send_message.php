@@ -49,5 +49,3 @@
 
     // Create a MailValidate object.
     $validate_mail = new MailValidate($email_address);
-
-?>
