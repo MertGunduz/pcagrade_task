@@ -41,9 +41,9 @@
     }
     
     // Take name-surname and message, also use htmlspecialchars function to sanitize them for XSS attacks.
-    $name_surname = htmlspecialchars($_POST["name_surname"]);   
-    $user_message = htmlspecialchars($_POST["user_message"]);
-
+    $name_surname = htmlspecialchars(filter_input(INPUT_POST, "name_surname", FILTER_SANITIZE_STRING));
+    $user_message = htmlspecialchars(filter_input(INPUT_POST, "user_message", FILTER_SANITIZE_STRING));
+    
     // Take email without htmlspecialchars function.
     $email_address = $_POST["email_address"];
 

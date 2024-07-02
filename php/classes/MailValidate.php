@@ -107,32 +107,15 @@ class MailValidate
         $local_part = $this->extract_local_part($this->mail);
 
         $role_based_emails = [
-            'admin',
-            'administrator',
-            'info',
-            'contact',
-            'support',
-            'sales',
-            'office',
-            'noreply',
-            'no-reply',
-            'helpdesk',
-            'service',
-            'marketing',
-            'hr',
-            'jobs',
-            'careers',
-            'techsupport',
-            'it',
-            'sysadmin',
-            'finance',
-            'accounting',
-            'billing',
-            'press',
-            'media',
-            'pr',
-            'legal',
-            'dev'
+            'admin', 'administrator', 'info',
+            'contact', 'support', 'sales',
+            'office', 'noreply', 'no-reply',
+            'helpdesk', 'service', 'marketing',
+            'hr', 'jobs', 'careers',
+            'techsupport', 'it', 'sysadmin',
+            'finance', 'accounting', 'billing',
+            'press', 'media','pr',
+            'legal', 'dev', "staff"
         ];
 
         return in_array(strtolower($local_part), $role_based_emails);
