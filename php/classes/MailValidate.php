@@ -90,6 +90,12 @@
             // Path to disposable email list file
             $file_path = __DIR__ . '/../data/disposable_mails.txt';
 
+            // Check if the file exists and is readable
+            if (!is_readable($file_path)) 
+            {
+                throw new RuntimeException("Disposable email list file not found or not readable.");
+            }
+
             // Read the file into an array
             $disposable_email_providers = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
@@ -105,7 +111,7 @@
          */
         private function has_valid_syntax(string $email): bool
         {
-            return preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email);
+            return (bool) preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email);
         }
 
         /**
