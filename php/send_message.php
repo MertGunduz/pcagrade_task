@@ -48,4 +48,34 @@
     $email_address = $_POST["email_address"];
 
     // Create a MailValidate object.
-    $validate_mail = new MailValidate($email_address);
+    $mail_validator = new MailValidate($email_address);
+
+    // Check if the email address syntax is valid
+    if ($mail_validator->is_email_valid()) 
+    {
+        echo "Email syntax is valid.<br>";
+    } 
+    else 
+    {
+        echo "Email syntax is not valid.<br>";
+    }
+
+    // Check if the email address domain is from a known disposable email provider
+    if ($mail_validator->is_email_disposable()) 
+    {
+        echo "Email domain is from a disposable provider.<br>";
+    } 
+    else 
+    {
+        echo "Email domain is not from a disposable provider.<br>";
+    }
+
+    // Check if the email address is role-based
+    if ($mail_validator->is_email_role_based()) 
+    {
+        echo "Email address is role-based.<br>";
+    } 
+    else 
+    {
+        echo "Email address is not role-based.<br>";
+    }
