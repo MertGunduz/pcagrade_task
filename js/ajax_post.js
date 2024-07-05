@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('send-message-form');
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
         const formData = new FormData(form);
 
@@ -24,6 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('An error occurred while sending the message.');
         });
 
-        return false; // Ensure the default action is completely prevented
+        return false;
     });
 });

@@ -79,7 +79,7 @@
         }
 
         /**
-         * Checks if the email address domain is from a known disposable email provider.
+         * Checks if the email address domain is from a disposable email provider.
          *
          * @return bool True if the domain is from a disposable email provider, false otherwise.
          */
@@ -87,19 +87,19 @@
         {
             $domain = substr(strrchr($this->mail, "@"), 1);
 
-            // Path to disposable email list file
+            // Disposable_mails.txt list file path.
             $file_path = __DIR__ . '/../data/disposable_mails.txt';
 
-            // Check if the file exists and is readable
+            // Check if the file exists and is readable.
             if (!is_readable($file_path)) 
             {
                 throw new RuntimeException("Disposable email list file not found or not readable.");
             }
 
-            // Read the file into an array
+            // Read the file into an array.
             $disposable_email_providers = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-            // Check if the domain is in the list of disposable email providers
+            // Check if the domain is in the list of disposable email providers.
             return in_array($domain, $disposable_email_providers);
         }
     }

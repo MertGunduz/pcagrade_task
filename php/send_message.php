@@ -23,7 +23,7 @@
         $form_submit_errors[] = "Please enter message content.";
     }
 
-    // Check if accept_terms checkbox is checked and submit button clicked/
+    // Check if accept_terms checkbox is checked.
     if (!isset($_POST["accept_terms"])) 
     {
         $form_submit_errors[] = "Please accept terms and conditions.";
@@ -46,20 +46,19 @@
     // Create a MailValidate object.
     $mail_validator = new MailValidate($email_address);
 
-    // Check if the email address syntax is valid
+    // Check if the email address syntax is valid.
     if (!$mail_validator->is_email_valid()) 
     {
         echo json_encode(['success' => false, 'errors' => ["Email syntax is not valid or DNS checks are unsuccessful, please check again or try with a different mail."]]);
         exit;
     }
 
-    // Check if the email address domain is from a known disposable email provider
+    // Check if the email address domain is from a disposable email provider.
     if ($mail_validator->is_email_disposable()) 
     {
         echo json_encode(['success' => false, 'errors' => ["Email domain is from a disposable provider, please use your original email address."]]);
         exit;
     }
 
-    // If all checks pass, process the message (e.g., send an email, save to database, etc.)
-    // For demonstration, we'll just return a success message.
+    // Return the message successfully sent information to user.
     echo json_encode(['success' => true, 'message' => "Message sent successfully."]);
