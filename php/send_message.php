@@ -8,25 +8,25 @@
     // Check if name_surname passed correctly from the form and sanitize input.
     if (!isset($_POST["name_surname"]) || empty($_POST["name_surname"])) 
     {
-        $form_submit_errors[] = "Name & Surname is required.";
+        $form_submit_errors[] = "Please enter your name and surname.";
     }
 
     // Check if email_address passed correctly from the form and validate its format.
     if (!isset($_POST["email_address"]) || empty($_POST["email_address"])) 
     {
-        $form_submit_errors[] = "A valid Email Address is required.";
+        $form_submit_errors[] = "Please enter your e-mail address.";
     }
 
     // Check if user_message passed correctly from the form and validate max length.
     if (!isset($_POST["user_message"]) || empty($_POST["user_message"])) 
     {
-        $form_submit_errors[] = "Message is required and must be 256 characters or less.";
+        $form_submit_errors[] = "Please enter message content.";
     }
 
     // Check if accept_terms checkbox is checked and submit button clicked/
     if (!isset($_POST["accept_terms"])) 
     {
-        $form_submit_errors[] = "You must accept the Terms & Conditions.";
+        $form_submit_errors[] = "Please accept terms and conditions.";
     }
     
     // If there are any errors, return them as JSON and exit.

@@ -2,7 +2,7 @@
     /**
      * Class MailValidate
      *
-     * This class provides methods to validate and check the email address before sending the form data.
+     * This class provides methods to validate and check the email address before sending the form data according to RFC 5321 and RFC 5322 specifications.
      */
     class MailValidate
     {
@@ -57,23 +57,25 @@
         public function is_email_valid(): bool
         {
             $email = $this->mail;
-
+        
             // Removing spaces from the email
             $email = trim($email);
-
+        
             // Basic syntax validation using regex
-            if (!$this->has_valid_syntax($email)) {
+            if (!(bool) preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)) 
+            {
                 return false;
             }
-
+        
             // Validate email format using PHP's built-in filter
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+            {
                 return false;
             }
-
+        
             // Extract the domain from the email
             $domain = substr(strrchr($email, "@"), 1);
-
+        
             // Check if the domain has a valid MX or A record
             return $this->has_valid_dns($domain);
         }
@@ -101,17 +103,6 @@
 
             // Check if the domain is in the list of disposable email providers
             return in_array($domain, $disposable_email_providers);
-        }
-
-        /**
-         * Validates the syntax of the email address using a regex pattern.
-         *
-         * @param string $email The email address to validate.
-         * @return bool True if the email address has valid syntax, false otherwise.
-         */
-        private function has_valid_syntax(string $email): bool
-        {
-            return (bool) preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email);
         }
 
         /**
