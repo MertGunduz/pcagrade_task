@@ -111,6 +111,34 @@ main {
 #message-characters-p {
     text-align: right;
 }
+
+.login-submit {
+    padding: 10px;
+    width: 100%;
+    background-color: #d4f34a;
+    border: 2px solid #000;
+    box-shadow: #85a00d 4px 4px 0px 0px,#000 4px 4px 0 2px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.07s;
+}
+
+.login-submit:focus {
+    text-decoration: none;
+}
+  
+.login-submit:hover {
+    text-decoration: none;
+    box-shadow: #85a00d 0px 0px 0 0, #000 0px 0px 0 0px;
+    transform: translate(4px, 4px);
+    transition: 0.07s;
+}
+  
+.login-submit:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+}
 /* FORM DESIGN */
 
 
@@ -140,6 +168,14 @@ main {
     width: 60px;
     margin-right: 14px;
     cursor: pointer;
+    transition: 0.07s;
+}
+
+.checkbox-element label:hover {
+    text-decoration: none;
+    box-shadow: #85a00d 0px 0px 0 0, #000 0px 0px 0 0px;
+    transform: translate(4px, 4px);
+    transition: 0.07s;
 }
 
 .checkbox-element input {
