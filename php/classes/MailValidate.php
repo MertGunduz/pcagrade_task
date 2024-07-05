@@ -56,28 +56,26 @@
          */
         public function is_email_valid(): bool
         {
-            $email = $this->mail;
-        
-            // Removing spaces from the email
-            $email = trim($email);
-        
-            // Basic syntax validation using regex
+            // Take the email address and trim it to remove the spaces.
+            $email = trim($this->mail);
+            
+            // Validate the email address syntax using regex.
             if (!(bool) preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)) 
             {
                 return false;
             }
-        
-            // Validate email format using PHP's built-in filter
+            
+            // Validate the email address by using default filter.
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
             {
                 return false;
             }
-        
-            // Extract the domain from the email
+            
+            // Take the domain string data from the email.
             $domain = substr(strrchr($email, "@"), 1);
-        
-            // Check if the domain has a valid MX or A record
-            return $this->has_valid_dns($domain);
+            
+            // Check if the domain has a valid MX or A record.
+            return checkdnsrr($domain, "MX") || checkdnsrr($domain, "A");
         }
 
         /**
@@ -103,16 +101,5 @@
 
             // Check if the domain is in the list of disposable email providers
             return in_array($domain, $disposable_email_providers);
-        }
-
-        /**
-         * Checks if the domain has valid DNS records (MX or A).
-         *
-         * @param string $domain The domain to check.
-         * @return bool True if the domain has valid DNS records, false otherwise.
-         */
-        private function has_valid_dns(string $domain): bool
-        {
-            return checkdnsrr($domain, "MX") || checkdnsrr($domain, "A");
         }
     }

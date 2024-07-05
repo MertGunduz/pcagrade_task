@@ -49,14 +49,14 @@
     // Check if the email address syntax is valid
     if (!$mail_validator->is_email_valid()) 
     {
-        echo json_encode(['success' => false, 'errors' => ["Email syntax is not valid."]]);
+        echo json_encode(['success' => false, 'errors' => ["Email syntax is not valid or DNS checks are unsuccessful, please check again or try with a different mail."]]);
         exit;
     }
 
     // Check if the email address domain is from a known disposable email provider
     if ($mail_validator->is_email_disposable()) 
     {
-        echo json_encode(['success' => false, 'errors' => ["Email domain is from a disposable provider."]]);
+        echo json_encode(['success' => false, 'errors' => ["Email domain is from a disposable provider, please use your original email address."]]);
         exit;
     }
 

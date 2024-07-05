@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert(data.message);
                 form.reset();
             } else {
-                alert('Failed to send the message. \n\n Errors: ' + data.errors.join(', '));
+                alert('Failed to send the message. \n\n' + data.errors.join(', '));
             }
         })
         .catch(error => {
